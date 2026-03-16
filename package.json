@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A self-correcting time estimation skill for Claude Code. Estimates task duration, logs outcomes, tracks calibration accuracy, and generates project offers with risk-adjusted buffers.",
   "bin": {
-    "claude-code-time-estimator": "./bin/install.js"
+    "claude-code-time-estimator": "bin/install.js"
   },
   "files": [
     "bin/",
