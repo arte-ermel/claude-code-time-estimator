@@ -1,0 +1,55 @@
+{
+  "skill_name": "universal-time-estimator",
+  "evals": [
+    {
+      "id": 1,
+      "name": "estimate-shopify-checkout",
+      "prompt": "I need to build a multi-step checkout flow for a Shopify headless store using React and Next.js. It involves cart review, address form with validation, payment integration with Stripe, and an order confirmation page. How long do you think this will take?",
+      "expected_output": "Should produce a time estimate with low/best/high minute ranges, confidence score, and reference to the generic priors since no history exists yet",
+      "files": [],
+      "assertions": [
+        {"text": "Runs the time_estimator.py estimate command", "type": "behavioral"},
+        {"text": "Presents low, best guess, and high minute ranges", "type": "output"},
+        {"text": "Mentions confidence level or notes limited historical data", "type": "output"},
+        {"text": "Infers reasonable domain (web_app), tags (react, shopify, next.js), size (L or XL), and complexity (4-5)", "type": "behavioral"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "log-n8n-workflow",
+      "prompt": "Just finished that n8n workflow I was building — the one that syncs Shopify orders to our Google Sheet and sends Slack notifications. It was a medium-sized task, complexity around 2. My original estimate was 30-60 minutes but it actually took 45 minutes. Log that for me.",
+      "expected_output": "Should log the outcome to the JSONL file and return confirmation with task ID and bucket stats",
+      "files": [],
+      "assertions": [
+        {"text": "Runs time_estimator.py log_outcome command", "type": "behavioral"},
+        {"text": "Correctly extracts: domain=automation, tags include n8n, size=M or S, complexity=2", "type": "behavioral"},
+        {"text": "Shows the logged task ID and confirmation message", "type": "output"},
+        {"text": "Passes estimate-low=30 and estimate-high=60 and actual-minutes=45", "type": "behavioral"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "calibration-check",
+      "prompt": "I've been using your time estimates for a few weeks now. Can you show me how accurate they've been? I want to see if the estimates for my React work are getting better.",
+      "expected_output": "Should run calibration_summary and present results in a readable table format, highlighting React-specific stats if available",
+      "files": [],
+      "assertions": [
+        {"text": "Runs time_estimator.py calibration_summary command", "type": "behavioral"},
+        {"text": "Presents results in a human-readable format (not raw JSON)", "type": "output"},
+        {"text": "Shows by-domain and by-tag breakdowns", "type": "output"}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "project-time-report",
+      "prompt": "How much time have I spent on the DealOS project this week? Break it down by day.",
+      "expected_output": "Should run project_summary for DealOS with date range filter and present a daily breakdown",
+      "files": [],
+      "assertions": [
+        {"text": "Runs time_estimator.py project_summary with --project DealOS", "type": "behavioral"},
+        {"text": "Uses date range filter (--from and/or --to) for this week", "type": "behavioral"},
+        {"text": "Presents daily breakdown with hours and task summaries", "type": "output"}
+      ]
+    }
+  ]
+}
