@@ -5,10 +5,15 @@ A self-correcting time estimation skill for [Claude Code](https://docs.anthropic
 ## Install
 
 ```bash
-npx claude-code-time-estimator
+npx @arte-ermel/claude-code-time-estimator
 ```
 
 This copies the skill into `~/.claude/skills/universal-time-estimator/`. No dependencies required — just Python 3 (for the estimation engine) and Claude Code.
+
+> **Note:** This package is hosted on [GitHub Packages](https://github.com/arte-ermel/claude-code-time-estimator/packages). If you haven't used GitHub Packages before, you may need to configure npm to use the GitHub registry for the `@arte-ermel` scope:
+> ```bash
+> echo "@arte-ermel:registry=https://npm.pkg.github.com" >> ~/.npmrc
+> ```
 
 ## What It Does
 
@@ -124,7 +129,7 @@ python3 ~/.claude/skills/universal-time-estimator/time_estimator.py project_summ
 ## Uninstall
 
 ```bash
-npx claude-code-time-estimator --uninstall
+npx @arte-ermel/claude-code-time-estimator --uninstall
 ```
 
 This removes the skill files but preserves your time log data.

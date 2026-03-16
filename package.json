@@ -1,5 +1,5 @@
 {
-  "name": "claude-code-time-estimator",
+  "name": "@arte-ermel/claude-code-time-estimator",
   "version": "1.0.0",
   "description": "A self-correcting time estimation skill for Claude Code. Estimates task duration, logs outcomes, tracks calibration accuracy, and generates project offers with risk-adjusted buffers.",
   "bin": {
@@ -25,9 +25,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arteautomations/claude-code-time-estimator.git"
+    "url": "git+https://github.com/arte-ermel/claude-code-time-estimator.git"
   },
-  "homepage": "https://github.com/arteautomations/claude-code-time-estimator#readme",
+  "homepage": "https://github.com/arte-ermel/claude-code-time-estimator#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "engines": {
     "node": ">=14.0.0"
   }
